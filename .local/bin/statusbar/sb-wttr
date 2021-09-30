@@ -1,0 +1,49 @@
+#!/bin/sh
+
+json="${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+url="wttr.in/waterloo+ontario?format=j1"
+getweatherdata(){ curl -sf "$url" > "$json" || exit 1;}
+
+updatesb(){
+	tempF="$(jq -r '.current_condition[0].FeelsLikeF' $json)";
+	tempC="$(jq -r '.current_condition[0].FeelsLikeC' $json)";
+	pop="$(jq -r '.weather[0].hourly[0].chanceofrain' $json)";
+	humidity="$(jq -r '.current_condition[0].humidity' $json)";
+	echo "☔ "$pop"% 🚵 "$tempC"°C ("$tempF"F) 😓 "$humidity"%";
+}
+
+dailyformatted(){
+	sunrise="$(eval "jq -r '.weather[$1].astronomy[0].sunrise' $json")";
+	sunset="$(eval "jq -r '.weather[$1].astronomy[0].sunset' $json")";
+	maxtempC="$(eval "jq -r '.weather[$1].maxtempC' $json")";
+	maxtempF="$(eval "jq -r '.weather[$1].maxtempF' $json")";
+	mintempC="$(eval "jq -r '.weather[$1].mintempC' $json")";
+	mintempF="$(eval "jq -r '.weather[$1].mintempF' $json")";
+	POP09="$(eval "jq -r '.weather[$1].hourly[3].chanceofrain' $json")";
+	POP12="$(eval "jq -r '.weather[$1].hourly[4].chanceofrain' $json")";
+	POP15="$(eval "jq -r '.weather[$1].hourly[5].chanceofrain' $json")";
+	POP18="$(eval "jq -r '.weather[$1].hourly[6].chanceofrain' $json")";
+	Date="$(eval "jq -r '.weather[$1].date' $json" | cut -d'-' -f2,3)";
+	printf "================ %s ================\n" "$Date";
+	printf "🌄 Sunrise\t%s\n" "$sunrise";
+	printf "🌇 Sunset\t%s\n" "$sunset";
+	printf "🌡  %s°C(%sF) ~ %s°C(%sF)\n" "$mintempC" "$mintempF" "$maxtempC" "$maxtempF";
+	printf "🍵 Beforenoon %s%%(09:00)-->%s%%(12:00)\n" "$POP09" "$POP12";
+	printf "🚵 Afternoon  %s%%(15:00)-->%s%%(18:00)\n" "$POP15" "$POP18";
+}
+
+getreport(){
+	dailyformatted 0
+	printf "\n"
+	dailyformatted 1
+	printf "\n"
+	dailyformatted 2
+}
+
+[ "$(stat -c %y "$json" 2>/dev/null | cut -d':' -f1)" = "$(date '+%Y-%m-%d %H')" ] || getweatherdata
+
+if [ -z $1 ]; then
+	updatesb;
+else
+	getreport;
+fi

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "$(sb-disk /) $(sb-disk)"

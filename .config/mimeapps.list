@@ -1,0 +1,21 @@
+[Default Applications]
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-SWNH90.desktop
+text/plain=text.desktop;
+application/postscript=pdf.desktop;
+application/pdf=pdf.desktop;
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+application/rss+xml=rss.desktop
+video/x-matroska=video.desktop
+x-scheme-handler/lbry=lbry.desktop
+inode/directory=file.desktop
+x-scheme-handler/msteams=teams.desktop
+message/rfc822=userapp-Thunderbird-SWNH90.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-SWNH90.desktop;
+message/rfc822=userapp-Thunderbird-SWNH90.desktop;

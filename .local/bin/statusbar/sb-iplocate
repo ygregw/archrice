@@ -1,0 +1,22 @@
+#!/bin/sh
+
+TOKEN="f55668a4a2a941";
+# Gets your public ip address checks which country you are in and
+# displays that information in the statusbar
+#
+# https://www.maketecheasier.com/ip-address-geolocation-lookups-linux/
+
+# old approach using geoiplookup and maxmind api
+# ifinstalled "geoiplookup" || exit
+# addr="$(curl ifconfig.me 2>/dev/null)" || exit
+# geoinfo="$(geoiplookup "$addr")"
+# err="$(echo $geoinfo | grep "Server Error")" && exit
+# city="$(geoiplookup "$addr" | grep City | sed 's/^.*://' | sed 's/ //g' | awk -F, '{print $4}')";
+# country="$(geoiplookup "$addr" | grep Country | sed 's/^.*://' | sed 's/ //g' | awk -F, '{print $1}')";
+# echo "🌐 ${addr} ${city},${country}"
+
+full="$(curl -u $TOKEN: ipinfo.io)" || exit
+addr="$(echo $full | tr "," "\n" | grep "ip" | awk -F\" '{print $4}')";
+city="$(echo $full | tr "," "\n" |grep "city" | awk -F\" '{print $4}')";
+country="$(echo $full | tr "," "\n" | grep "country" | awk -F\" '{print $4}')";
+echo "🌎 ${addr} ${city},${country}";

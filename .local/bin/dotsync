@@ -1,0 +1,129 @@
+#!/bin/sh
+
+# This script serves as a temporary solution to sync between my multiple laptops
+
+DIRECTION=$1
+num_args=$#
+cd $DOTFILES_DIR
+list_sc="yt tex-ready archwiki"
+# aliasrc and shortcutrc
+sysrc() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/directories $HOME/.config/aliasrc $HOME/.config/shortcutrc $DOTFILES_DIR/
+	else
+		cp $DOTFILES_DIR/directories $DOTFILES_DIR/aliasrc $DOTFILES_DIR/shortcutrc $HOME/.config/
+	fi
+}
+# personal scripts
+scripts() {
+	if [ "$1" = "out" ]; then
+		for member_sc in $list_sc ; do
+			cp $HOME/.local/bin/personal/"${member_sc}" $SCRIPTS_DIR/personal/"${member_sc}"
+		done
+	else
+		for member_sc in $list_sc ; do
+			cp $SCRIPTS_DIR/personal/"${member_sc}" $HOME/.local/bin/personal/"${member_sc}"
+		done
+	fi
+}
+# newsboat rc
+newb() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/newsboat/* $DOTFILES_DIR/newsboat/
+	else
+		cp $DOTFILES_DIR/newsboat/* $HOME/.config/newsboat/
+	fi
+}
+# mpv rc
+mpv() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/mpv/input.conf $DOTFILES_DIR/mpv/input.conf
+	else
+		cp $DOTFILES_DIR/mpv/input.conf $HOME/.config/mpv/input.conf
+	fi
+}
+# qutebrowser rc
+qute() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/qutebrowser/config.py $HOME/.config/qutebrowser/quickmarks $DOTFILES_DIR/qutebrowser/
+	else
+		cp $DOTFILES_DIR/qutebrowser/config.py $DOTFILES_DIR/qutebrowser/quickmarks $HOME/.config/qutebrowser/
+	fi
+}
+# zathura rc
+zat() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/zathura/zathurarc $DOTFILES_DIR/zathura/
+	else
+		cp $DOTFILES_DIR/zathura/zathurarc $HOME/.config/zathura/
+	fi
+}
+# ranger rc
+rgr() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/ranger/shortcuts.conf $DOTFILES_DIR/ranger/
+	else
+		cp $DOTFILES_DIR/ranger/shortcuts.conf $HOME/.config/ranger/
+	fi
+}
+# neovim config
+neov() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/nvim/init.vim $DOTFILES_DIR/vim/init.vim
+		#cp $HOME/.config/nvim/coc-settings.json $DOTFILES_DIR/vim/coc-settings.json
+		cp $HOME/.config/nvim/plugin/snippets.vim $DOTFILES_DIR/vim/plugin/snippets.vim
+		cp $HOME/.config/nvim/plugin/cocconfig.vim $DOTFILES_DIR/vim/plugin/cocconfig.vim
+	else
+		cp $DOTFILES_DIR/vim/init.vim $HOME/.config/nvim/init.vim
+		#cp $DOTFILES_DIR/vim/coc-settings.json $HOME/.config/nvim/coc-settings.json
+		cp $DOTFILES_DIR/vim/plugin/snippets.vim $HOME/.config/nvim/plugin/snippets.vim
+		cp $DOTFILES_DIR/vim/plugin/cocconfig.vim $HOME/.config/nvim/plugin/cocconfig.vim
+	fi
+}
+# calcurse config
+calcurse() {
+	if [ "$1" = "out" ]; then
+		cp -r $HOME/.config/calcurse $DOTFILES_DIR
+	else
+		cp -r $DOTFILES_DIR/calcurse $HOME/.config
+	fi
+}
+# mutt/accounts/MYACCOUNT/muttrc
+muttrc() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.config/mutt/accounts/*.muttrc $DOTFILES_DIR/mutt/1-transmit.muttrc
+		sed -i 's/uwam-gw/transmit/g' $DOTFILES_DIR/mutt/1-transmit.muttrc
+		sed -i 's/mailoo/transmit/g' $DOTFILES_DIR/mutt/1-transmit.muttrc
+	else
+		if [ "$THINKPADNAME" = "T420" ]; then
+			cp $DOTFILES_DIR/mutt/1-transmit.muttrc $HOME/.config/mutt/accounts/*.muttrc
+			sed -i 's/transmit/uwam-gw/g' $HOME/.config/mutt/accounts/*.muttrc
+		else
+			cp $DOTFILES_DIR/mutt/1-transmit.muttrc $HOME/.config/mutt/accounts/*.muttrc
+			sed -i 's/transmit/mailoo/g' $HOME/.config/mutt/accounts/*.muttrc
+		fi
+	fi
+}
+# emacs
+emacscf() {
+	if [ "$1" = "out" ]; then
+		cp $HOME/.emacs.d/init.el $HOME/.emacs.d/config.org $DOTFILES_DIR/emacs
+		# cp -r $HOME/.emacs.d/personal $DOTFILES_DIR/emacs
+	else
+		cp $DOTFILES_DIR/emacs/init.el $DOTFILES_DIR/emacs/config.org $HOME/.emacs.d
+		# cp -r $DOTFILES_DIR/emacs/personal $HOME/.emacs.d
+	fi
+}
+# main sync
+if [ $num_args -eq 1 ]; then
+	if [ "$DIRECTION" = "out" ]; then
+		sysrc "out" && scripts "out" && newb "out" && mpv "out" && zat "out" && rgr "out" && neov "out" && calcurse "out"
+	elif [ "$DIRECTION" = "in" ]; then
+		sysrc "in" && scripts "in" && newb "in" && mpv "in" && zat "in" && rgr "in" && neov "in" && calcurse "in"
+	else
+		echo "Parameter can only be \"in\" or \"out\":"
+	fi
+else
+	echo "One and only one parameter is required:"
+fi
+exit 0

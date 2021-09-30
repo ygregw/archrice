@@ -1,0 +1,15 @@
+#!/bin/sh
+
+calcurse -D ~/.config/calcurse -d $1 | while read line; do
+if [[ "$line" =~ ^[0-9] ]]
+then
+	date=$(echo $line | cut -d: -f 1);
+	weekday=$(date -d $date +%A);
+	echo "$date $weekday:"
+elif [[ "$line" =~ ^- ]]
+then
+	echo " $line";
+else
+	echo "     $line";
+fi
+done

@@ -1,0 +1,135 @@
+sw_volume: 100
+audio_device_state:1:alsa for audio soundcard
+audio_device_state:1:toggle_visualizer
+state: stop
+current: 110
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Yoko Kanno/[2003.01.22] Ghost in the Shell Stand Alone Complex OST/06. train serch.mp3
+1:Bruce Springsteen/Lucky Town/05 Leap Of Faith.mp3
+2:Pet Shop Boys/1987 Actually @320/06. It Couldn't Happen Here.mp3
+3:Traveling Wilburys/The Traveling Wilburys - discografy/2007 - The Traveling Wilburys Collection 2 СD/CD 1/06 - Traveling Wilburys - Congratulations.mp3
+4:Phil Collins/2002_-_Testify_(Face_Value_Records._0927-49273-2)/12_-_You_Touch_My_Heart.mp3
+5:Jefferson Airplane/1989 Jefferson Airplane (Reunion)/12. Too Many Years.mp3
+6:Pearl Jam/2003 - Lost Dogs (Epic, 2 CD)/CD2/02 - Other Side.mp3
+7:Aqua Timez/[2007.11.21] Dareka no Chijoue (ダレカの地上絵)/11. Garnet.mp3
+8:Joan Baez/CD 2/14 - Walkin' Down The Line.flac
+9:Bruce Springsteen/Wrecking Ball/08 You've Got It.mp3
+10:Eason Chan/2009-《上五楼的快活》/陈奕迅-你为什么哭了呢.ape
+11:Roger Waters/(2005) Roger Waters - Ca Ira 2CD/Disc2/01 The Fugitive King.flac
+12:The Beatles/Rubber Soul/05 Think For Yourself.mp3
+13:Lou Reed/2003 - The Raven [Limited Edition] Disc 2/17 Tripitena's speech.mp3
+14:Glenn Gould/Bach/Glenn Gould - Bach - Well-Tempered Clavier/cd2/26--WTC Vol II, Fugue No. 5 in D major, BWV874.flac
+15:Yoko Kanno/[2003.01.22] Ghost in the Shell Stand Alone Complex OST/15. we're the great.mp3
+16:Bruce Springsteen/Devils & Dust/10 The Hitter.mp3
+17:Placebo/CD 3 - Black Market Music/08. Slave To The Wage.mp3
+18:Eric Clapton/Discography/1976 - No Reason to Cry/Eric Clapton - No Reason to Cry - 01 - Beautiful Thing.mp3
+19:Yoko Kanno/[2005.04.13] Ashura-jo no Hitomi Original Soundtrack/10. Keren te Keren.mp3
+20:Eason Chan/2014-《Rice & Shine》/陈奕迅-娱乐天空.flac
+21:Ben Platt/02 Ease My Mind.mp3
+22:Cowboy Bebop/Cowboy Bebop OST 3 - No Disc/05 - Live In Baghdad.mp3
+23:The Kinks/1975 - Soap Opera/07 - Underneath the Neon Sign.mp3
+24:Glenn Gould/Bach/Glenn Gould - Bach - French Suites/40--Suite No. 6 in E major, BWV817- 8. Gigue.flac
+25:EVA OST/OST2/OST2 -12 - Spending Time in Preparation.mp3
+26:Jacky Cheung/1986.张学友.情无四归/split-track10.wav
+27:The Eagles/2007 - Long Road Out Of Eden/CD2/07 - Business As Usual.mp3
+28:Eric Clapton/Live Albums & With Friends/EC & Friends/Eric Clapton &  Rolling Stones/1975 - Eric Clapton & His Rolling Stones (Live 2CD) @320/CD1/09 You Can't Always Get What You Want.mp3
+29:Tatsuro Yamashita/[1991.06.18] Artisan (Lossless)/11 Groovin'.flac
+30:Tatsuro Yamashita/[1993.11.18] Season's Greetings (320 Kbps)/1. Acappella Variation On A Theme By Gluck.mp3
+31:The Kinks/1981 - Give the people what they want/02 - Give the people what they want.mp3
+32:Grateful Dead/1970 American Beauty/Grateful Dead - 14. Till The Morning Comes (Live).mp3
+33:Yoko Kanno/[1996.07.24] Escaflowne - OST 2/02. Fanelia.mp3
+34:Status Quo/[1979] Whatever You Want/07 - Rockin' On.mp3
+35:Faye Wong/1994-迷[K2HD][WAV]/王菲 - 01.我愿意 (国) .flac
+36:Coldplay/A Rush of Blood to the Head/01 Politik.mp3
+37:Eason Chan/2010-《DUO 陈奕迅2010演唱会》/陈奕迅-等.ape
+38:Talking Heads/Naked/01 - Blind.mp3
+39:Susumu Hirasawa/1996_SIREN/12. ELECTRIC LIGHT BATH (default version).mp3
+40:Yoko Kanno/[2000.06.07] Turn A GUNDAM OST III Cocoa/01. Kagiri naki Tabiji.mp3
+41:Yoko Kanno/solo_studio_albums/[2009.05.27] SPACE BIO CHARGE/Disc 1/11. Kagiri Naki Tabiji.mp3
+42:Ghost in the Shell OST/Ghost in the Shell - SAC - Be Human/18 - AI sentai Tachikoma.mp3
+43:Eric Clapton/Discography/1970 - Eric Clapton/Eric Clapton - 09 - Told You For The Last Time -.mp3
+44:Faye Wong/1999-只爱陌生人[EMI原版][WAV]/王菲 - 01.开到荼蘼.flac
+45:Yes/1 Studio/1980 Drama (Remastered and Expanded) @320/14 Golden Age (Previously Unissued).mp3
+46:Eason Chan/1997-《酝酿》/陈奕迅-摊开双手.ape
+47:Leonard Cohen/[1974] New Skin for the Old Ceremony/09) Leonard Cohen - Who by Fire.mp3
+48:Eason Chan/1997-《酝酿》/陈奕迅-爱的傀儡.ape
+49:Coldplay/A Head Full of Dreams/11 Up&Up.mp3
+50:Yoko Kanno/[2004.05.26] Shimotsuma Monogatari OST/10. Momoko, The Moon Shine Bright.mp3
+51:Yoko Kanno/[2003.10.22] Nobunaga's Ambition - Tenshouki/26. Nagi no Kaze, Kasuka.mp3
+52:Yoko Kanno/[2001.05.23] Arjuna Onna no Minato/06. Shizukana Inochi.mp3
+53:Alice In Chains/2009 - Black Gives Way To Blue/10. Private Hell.flac
+54:Suzanne Vega/1996 Nine Objects of Desire/09 - Lolita.flac
+55:Pearl Jam/1 Studio albums/2006 - Pearl Jam/12 - Come Back.mp3
+56:Miyuki Nakajima/[1993.10.21] Jidai -Time goes around- (時代 -Time goes around-)/09. 慟哭.mp3
+57:The Doors/Morrison Hotel/11 Maggie M’Gill.mp3
+58:Status Quo/[1983] Back To Back/18 - The Wanderer (Sharon the Nag mix) [bonus track].mp3
+59:Suede/Albums/05 - A New Morning (2002) [Remastered & Expanded 2011]/CD2/20 - Refugees (Previously Unreleased).mp3
+60:Yoko Kanno/video_games_music/[1994.03.25] Uncharted Waters II - New Horizons/01. Opening - Hate Shinaki Koukai.mp3
+61:Roger Waters/(2000) Roger Waters - In The Flesh 2CD/CD1/08 Dogs.flac
+62:Yoko Kanno/video_games_music/[1994.03.25] Uncharted Waters II - New Horizons/06. Wind Ahead.mp3
+63:Yoko Kanno/[2003.10.22] Nobunaga's Ambition - Tenshouki/21. Kizano Mai Nin.mp3
+64:The Kinks/1965 - Kinda Kinks/19 - Wait Till Summer Comes Along (bonus track).mp3
+65:Yoko Kanno/[1996.07.24] Escaflowne - OST 2/08. Machine Soldier.mp3
+66:Pearl Jam/1 Studio albums/2006 - Pearl Jam/08 - Big Wave.mp3
+67:Yoko Kanno/[2000.06.07] Turn A GUNDAM OST III Cocoa/02. Tsuki no Kujira.mp3
+68:Jefferson Airplane/1989 Jefferson Airplane (Reunion)/02. Freedom.mp3
+69:Yoko Kanno/[2004.05.26] Ghost in the Shell Stand Alone Complex OST 2/11. what's it for.mp3
+70:Talking Heads/77/05 - Who Is It.mp3
+71:Wei Dou/艳阳天 - 1995 - WAV分轨/01引子new.wav
+72:Suede/Albums/03 - Coming Up (1996) [Remastered & Expanded 2011]/CD2/12 - These Are The Sad Songs.mp3
+73:Cowboy Bebop/Cowboy Bebop OST 5 - Future Blues/03 - Time to know ~ Be waltz.mp3
+74:Eric Clapton/Live Albums & With Friends/EC & Friends/Eric Clapton &  Rolling Stones/1975 - Eric Clapton & His Rolling Stones (Live 2CD) @320/CD1/05 Star Star.mp3
+75:Grateful Dead/1970 American Beauty/Grateful Dead - 14. Till The Morning Comes (Live).mp3
+76:Lou Reed/1986 - Mistrial/04 Don't Hurt A Woman.mp3
+77:The Beatles/With The Beatles/04 Don't Bother Me.mp3
+78:The Cranberries/2001 Wake Up and Smell the Coffee/14 - Cape Town [Bonus].mp3
+79:The Doors/An American Prayer/01 Awake.mp3
+80:The Beatles/Revolver/06 Yellow Submarine.mp3
+81:Bob Dylan/1970a - Self Portrait/Gotta Travel On.mp3
+82:Lou Reed/1984 - New Sensations/03 My Red Joystick.mp3
+83:Talking Heads/Naked/12 - Sax And Violins (Bonus Track).mp3
+84:Eason Chan/2002-《Eason 4 A Change & Hits》/陈奕迅-King Kong.ape
+85:Lou Reed/2003 - The Raven [Limited Edition] Disc 2/08 The cask.mp3
+86:EVA OST/OST3/eva-3-03.mp3
+87:Yoko Kanno/solo_studio_albums/[2009.04.22] CM Yoko 2/25. World you reached.mp3
+88:Lou Reed/2003 - The Raven [Limited Edition] Disc 1/11 The Fall of the House of Usher.mp3
+89:Yoko Kanno/[1998.11.21] Brain Powerd O.S.T. 2/11. Shell.mp3
+90:Suzanne Vega/2014 Tales from the Realm of the Queen of Pentacles/04 - Portrait Of The Knight Of Wands.flac
+91:Yoko Kanno/video_games_music/[1994.03.25] Uncharted Waters II - New Horizons/14. Chase.mp3
+92:REM/REM - Reckoning (MFSL) 1984/09 - (Don't Go Back To) Rockville.flac
+93:Ambient/The Guild of Ambience - 20170405 - Forest Sounds _ Woodland Ambience, Bird Song, Nearby Village _ 3 Hours - (10800s).m4a
+94:Ambient/The Guild of Ambience - 20180319 - Library Sounds _ Study Ambience _ 2 Hours - (7200s).m4a
+95:Ambient/The Guild of Ambience - 20180726 - Harbor Sounds _ Seaside Market Ambience _ 1 Hour - (3600s).m4a
+96:Ambient/Ultimate Ambient Noise Soundzzz - 20171014 - 🎧 Mountain Rain & Thunderstorm Sleep Sounds - Ambient Noise For Sleep & Meditation, @Ultizzz day#36 - (38890s).m4a
+97:Don Mclean/1971 American pie/01 American Pie.mp3
+98:Don Mclean/1971 American pie/02 Till Tomorrow.mp3
+99:Don Mclean/1971 American pie/03 Vincent.mp3
+100:Don Mclean/1971 American pie/04 Crossroads.mp3
+101:Don Mclean/1971 American pie/05 Winterwood.mp3
+102:Don Mclean/1971 American pie/06 Empty Chairs.mp3
+103:Don Mclean/1971 American pie/07 Everybody Loves Me, Baby.mp3
+104:Don Mclean/1971 American pie/08 Sister Fatima.mp3
+105:Don Mclean/1971 American pie/09 The Grave.mp3
+106:Don Mclean/1971 American pie/10 Babylon.mp3
+107:Don Mclean/1971 American pie/11 Mother Nature.mp3
+108:Don Mclean/1971 American pie/12 Aftermath.mp3
+109:Don Mclean/1971 American pie/01 American Pie.mp3
+110:Don Mclean/1971 American pie/02 Till Tomorrow.mp3
+111:Don Mclean/1971 American pie/03 Vincent.mp3
+112:Don Mclean/1971 American pie/04 Crossroads.mp3
+113:Don Mclean/1971 American pie/05 Winterwood.mp3
+114:Don Mclean/1971 American pie/06 Empty Chairs.mp3
+115:Don Mclean/1971 American pie/07 Everybody Loves Me, Baby.mp3
+116:Don Mclean/1971 American pie/08 Sister Fatima.mp3
+117:Don Mclean/1971 American pie/09 The Grave.mp3
+118:Don Mclean/1971 American pie/10 Babylon.mp3
+119:Don Mclean/1971 American pie/11 Mother Nature.mp3
+120:Don Mclean/1971 American pie/12 Aftermath.mp3
+playlist_end

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+current="$(ls -l | grep "Makefile")"
+if [ -z "$current" ]; then
+	cd .. && make
+else
+	make
+fi

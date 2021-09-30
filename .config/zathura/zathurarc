@@ -1,0 +1,20 @@
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set font "monospace normal 12"
+set selection-clipboard clipboard
+set recolor true
+set recolor-lightcolor "#F8EAD1"
+set recolor-darkcolor "#302505"
+map K scroll full-up
+map J scroll full-down
+map u navigate next
+map i navigate previous
+map r reload
+map R rotate
+map l zoom in
+map h zoom out
+map H scroll left
+map L scroll right
+map d recolor
+map p print
