@@ -1,50 +1,237 @@
 #!/bin/sh
 
 # Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
-# Use $XINITRC variable if file exists.
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-
-# sudo not required for some system commands
-for x in mount umount sv pacman updatedb su ; do
-	alias $x="sudo $x"
-done
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	bat="cat /sys/class/power_supply/BAT?/capacity" \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
-	bc="bc -ql" \
+	rm="rm -v" \
+	t="tree -L" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
+	# yt="youtube-dl --add-metadata -i" \
+	# yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
+	ls="ls -hN --color=auto --group-directories-first --ignore=lost+found" \
+	ll="ls -hNl --color=auto --group-directories-first --ignore=lost+found" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	ct="find . -maxdepth 2 -regextype posix-extended -regex '.*\.(mkv|mp4)' -exec ffprobe -v quiet -of csv=p=0 -show_entries format=duration {} \; | paste -sd+ | bc | awk '{printf(\"%d:%02d:%02d:%02d\n\",(\$1/60/60/24),(\$1/60/60%24),(\$1/60%60),(\$1%60))}'" \
 	ka="killall" \
-	g="git" \
+	lk="lsblk -o NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,ROTA,MOUNTPOINT" \
 	trem="transmission-remote" \
-	YT="youtube-viewer" \
+	tram="transmission-daemon" \
 	sdn="sudo shutdown -h now" \
-	e="$EDITOR" \
-	v="$EDITOR" \
 	p="sudo pacman" \
+	z="$READER" \
+	nrw="nmcli radio wifi" \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	py="python3.8" \
+	jn="jupyter notebook" \
+	tx="$EDITOR ./*.tex" \
+	cr="calcurse -D ~/.config/calcurse" \
+	crp="vim ~/.config/calcurse/apts" \
+	crt="vim ~/.config/calcurse/todo" \
+	mpk="mpd --kill && sudo umount /media"
 
+# Local dictionary
+#dt() {
+#	dict $1 | less
+#}
+
+# ssh stuff
 alias \
-	magit="nvim -c MagitOnly" \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	ark="ssh -i ~/.ssh/ark_rsa root@gregw.xyz"
+
+# This alias is important. It enables the `pauseallmpv` command.
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s) --osd-font-size=20"
+
+# This alias suppresses the stupid 'entering/leaving' make message
+alias mk="make --no-print-directory"
+alias mc="make clean"
+
+# Stuff realized by junegunn/fzf
+# edit file (vim)
+e() { chosen=$(du -a \
+	--exclude='*debris' \
+	--exclude='*cache' \
+	--exclude="*config/R*" \
+	--exclude="*config/Brave*" \
+	--exclude="*config/GIMP*" \
+	--exclude="*libreoffice*" \
+	--exclude="*Udemy*" \
+	--exclude="*syncthing*" \
+	--exclude="*firedrake*" \
+	--exclude="*pdf*" \
+	--exclude="*watch_later*" \
+	--exclude="*playlists*" \
+	--exclude="*menus*" \
+	--exclude="*djvu*" \
+	--exclude="*site-packages*" \
+	--exclude="*petsc*" \
+	--exclude="*virtualenv*" \
+	--exclude="*_home_gregw_*" \
+	--exclude="*plugged*" \
+	--exclude="*Trash*" \
+	--exclude="*pyenv*" \
+	--exclude="*jupyter*" \
+	--exclude="*mozilla*" \
+	--exclude="*.git*" \
+	~/Projects \
+	~/Documents/edu \
+	~/Documents/tablecloth \
+	~/.config \
+	~/.cache/wal \
+	~/.local/bin \
+	| awk '{print $2}' | cut -d"/" -f 4- | fzf -i) && $EDITOR "$HOME/$chosen"}
+# open file (zathura)
+# of [FUZZY PATTERN] - Open the selected file with the default reader
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+o() (
+  #IFS=$'\n'
+  #files=($(fzf-tmux -i --query="$1" --multi --select-1 --exit-0))
+  files=$(find . -type f 2> /dev/null | fzf -i +m)
+  [[ -n "$files" ]] && xdg-open "${files[@]}" 2> /dev/null
+)
+# open literature pdfs
+l() (
+  #IFS=$'\n'
+  #files=($(fzf-tmux -i --query="$1" --multi --select-1 --exit-0))
+  files=$(find $HOME/Projects/aposteriori \
+	  $HOME/Documents/edu \
+	  $HOME/Downloads \
+	  -type f -regex '.*\.pdf\|.*\.djvu\|.*\.epub' 2> /dev/null | cut -d"/" -f 4- | fzf -i +m)
+  [[ -n "$files" ]] && $READER "$HOME/${files[@]}" 2> /dev/null
+)
+# open videos
+v() (
+  files=$(find -L $HOME/Downloads \
+	  $HOME/Documents/pishare \
+	  -type f -regex '.*\.mp4\|.*\.mkv\|.*\.webm' 2> /dev/null | cut -d"/" -f 4- | fzf -i +m)
+  [[ -n "$files" ]] && xdg-open "$HOME/${files[@]}" 2> /dev/null
+)
+# delete videos
+vd() (
+  files=$(find $HOME/Downloads \
+	  $HOME/Documents/Videos \
+	  -type f -regex '.*\.mp4\|.*\.mkv\|.*\.webm' 2> /dev/null | cut -d"/" -f 4- | fzf -i +m)
+  [[ -n "$files" ]] && rm "$HOME/${files[@]}" 2> /dev/null
+)
+# fd - find directory, including hidden directories
+f() {
+  local dir
+  dir=$({find /home/gregw/.local/bin \
+	  /home/gregw/.local/share/calcurse \
+	  /home/gregw/.local/src \
+	  /home/gregw/Documents \
+	  /home/gregw/Downloads \
+	  /home/gregw/Projects \
+	  /home/gregw/Softwares \
+	  /home/gregw/.config \
+	  -path /home/gregw/Softwares/FEMs -prune -o \
+	  -path /home/gregw/.config/BraveSoftware -prune -o \
+	  -path /home/gregw/.config/GIMP -prune -o \
+	  -path '/home/gregw/**/.git' -prune -o \
+	  -type d 2> /dev/null; \
+	  find /home/gregw/Softwares/FEMs/MFEM -maxdepth 2 -type d \
+	  2> /dev/null} | cut -d"/" -f 4- | fzf +m) && cd "$HOME/$dir"
+}
+# gd - find directory recursively inside the current directory
+#g() {
+#	if [ -z "$1" ]; then
+#		local dir
+#		dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
+#	elif [ "$1" = "s" ]; then
+#		git status
+#	elif [ "$1" = "a" ]; then
+#		git add $2
+#	elif [ "$1" = "c" ]; then
+#		git commit -m $2
+#	elif [ "$1" = "l" ]; then
+#		git logline
+#	elif [ "$1" = "pl" ]; then
+#		git pull
+#	elif [ "$1" = "ps" ]; then
+#		git push
+#	fi
+#}
+
+yt() {
+	chosen=$(cat $HOME/.config/youtube-dl/cmds | fzf +m) &&
+	url=\"$(xclip -o -selection clipboard)\" &&
+	eval $(echo $chosen $url)
+}
+
+#b() {
+#  transmission-remote -l | head -n -1 | tail -n +2 | sed 's/\s*//' | sed 's/\([0-9]\)\s\([a-zA-Z]\)/\1\2/g' | awk -F' ' '{ print $1" "$2" "$6 }' | column -t
+#}
+
+#z() {
+#	$READER $1 2> /dev/null
+#}
+#
+#ok() {
+#	okular $1 2> /dev/null
+#}
+
+ncm() {
+	sed -i.bak '/^ *\/\//d' $1 && mv "${1}.bak" "verbatim-${1#*-}" > /dev/null && ls
+}
+
+# Pager colorscheme
+#man() {
+#    LESS_TERMCAP_md=$'\e[01;31m' \
+#    LESS_TERMCAP_me=$'\e[0m' \
+#    LESS_TERMCAP_us=$'\e[01;32m' \
+#    LESS_TERMCAP_ue=$'\e[0m' \
+#    LESS_TERMCAP_so=$'\e[43;30m' \
+#    LESS_TERMCAP_se=$'\e[0m' \
+#
+#    command man "$@"
+#}
+#
+#less() {
+#    #LESS_TERMCAP_md=$'\e[01;31m' \
+#    #LESS_TERMCAP_me=$'\e[0m' \
+#    #LESS_TERMCAP_us=$'\e[01;32m' \
+#    #LESS_TERMCAP_ue=$'\e[0m' \
+#    LESS_TERMCAP_so=$"\e[30;47" \
+#    #LESS_TERMCAP_se=$'\e[0m' \
+#
+#    command less "$@"
+#}
+#
+#clb() {
+#    LESS_TERMCAP_md=$'\e[01;31m' \
+#    LESS_TERMCAP_me=$'\e[0m' \
+#    LESS_TERMCAP_us=$'\e[01;32m' \
+#    LESS_TERMCAP_ue=$'\e[0m' \
+#    LESS_TERMCAP_so=$'\e[43;30m' \
+#    LESS_TERMCAP_se=$'\e[0m' \
+#
+#    command clb "$@"
+#}
+
+#crq() {
+#	calcurse -D ~/.config/calcurse -a --from 01/01/2017 --to 01/01/2022 | awk -v kw="$1" -v RS='' '$0 ~ kw {print; print "";}'
+#}
+crq() {
+	calcurse -D ~/.config/calcurse -a --from 01/01/2017 --to 01/01/2022 | awk -v kw="$1" 'BEGIN {RS="\n\n"; FS="\n"}; $0 ~ kw {{print $1} for (i = 2; i <= NF; i++) if ($i ~ kw) {if ($(i-1)~"->") {print $(i-1) "\n" $i} else {print $i}}{print ""}}' | head -n -1
+}
+
+vpn() {
+	vpnname=$(nmcli connection show | awk '/arkvpn/ {print $1}')
+	nmcli connection $1 $vpnname
+}
