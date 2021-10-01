@@ -22,11 +22,18 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-color listnormal color65 default
-color listfocus color16 color172 bold
-color listnormal_unread color172 default
-color listfocus_unread color16 color172 bold
-color info color104 color16 bold
+#color listnormal color65 default
+#color listfocus color16 color172 bold
+#color listnormal_unread color172 default
+#color listfocus_unread color16 color172 bold
+#color info color104 color16 bold
+#color article white default
+
+color listnormal green default
+color listfocus white magenta  bold
+color listnormal_unread yellow default
+color listfocus_unread white magenta bold
+color info blue black bold
 color article white default
 
 browser linkhandler

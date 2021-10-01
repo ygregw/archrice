@@ -1,0 +1,19 @@
+# Some questions to be answered
+
+1. hybridizablility?
+	See the end of discussion in [HDG] section 2.2
+		> ...We thus see that, for a FEM to be hybridizable, its
+		> numerical trace for the potential (scalar variable) must be
+		> *single valued*. This implies, in particular, that the DG
+		> method in [DG] that are not *adjoint consistent* cannot be
+		> hybridized by using our technique.
+		>> A: the resulting hybrid linear system is built with the
+		>> facet variable, i.e., the numerical trace of the potential.
+		>> Hence, it would be strange how that could pan out if the facet
+		>> variable is not single valued.
+	Further it explains why EDG and CG turn out to be hybridizable
+		> numerical trace for the flux needs to be single valued, since
+		> conservativity condition does not always ensure single-valued
+		> numerical trace. Thanks to this flexibility, CG and EDG are
+		> hybridizable.
+

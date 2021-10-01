@@ -1,0 +1,5 @@
+1. See the end of discussion in [HDG] section 2.2
+	> ...We thus see that, for a FEM to be hybridizable, its numerical
+	> trace \hat{u}_h must be *single valued*. This implies, in particular,
+	> that the DG method in [DG] that are not *adjoint consistent* cannot
+	> be hybridized by using our technique.

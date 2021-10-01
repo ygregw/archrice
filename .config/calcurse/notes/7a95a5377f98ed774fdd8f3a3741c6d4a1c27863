@@ -1,0 +1,2 @@
+delete white spaces at the beginning of each line: sed 's/^\s*//' file
+

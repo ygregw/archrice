@@ -1,0 +1,2 @@
+print lines without comment sign at the beginning; `awk -F' ' '/^[^#]/ {print $0}' /etc/passwd`
+

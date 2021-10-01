@@ -1,0 +1,3 @@
+* How to set different b.c.'s other than homogeneous Dirichlet illstrated for the simplest Poisson problem?
+    See step-3 tutorial Results -> Possibilities for extensions -> bullet point #3.
+    Link: [step-3 tutorial](https://dealii.org/developer/doxygen/deal.II/step_3.html#Results)

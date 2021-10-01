@@ -1,5 +1,6 @@
 ----------------Favorites------------------
 http://www.reddit.com/r/bapcsalescanada/.rss "reddit"
+http://headsalon.org/feed
 https://rssfeed.today/weibo/rss/1400461002 "blog" "~whigzhou weibo"
 https://rssfeed.today/weibo/rss/7371819150 "blog" "~Therion"
 http://www.overcomingbias.com/feed "blog"
@@ -7,16 +8,21 @@ http://feeds.feedburner.com/city-journal "column"
 https://daviddfriedman.blogspot.com/atom.xml "blog" "~David Friedman"
 https://slatestarcodex.com/feed/ "blog"
 https://astralcodexten.substack.com/feed "blog"
+https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&filter=local "~Luke Smith PT"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith YT" "youtube"
 https://lukesmith.xyz/rss.xml "~Luke Smith XYZ" "blog"
-https://based.cooking/rss.xml "Based Cooking"
-#https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3 "~Luke Smith PT" "PeerTube"
+https://based.cooking/rss.xml "~Based Cooking"
+https://landchad.net/rss.xml "~Landchad Web Guide"
 https://westhunt.wordpress.com/feed "blog"
 https://quillette.com/feed "column"
 https://drewdevault.com/blog/index.xml "~Drew DeVault" "blog"
 https://unherd.com/author/tom-chivers/feed/ "~Tom Chivers - Unherd" "column"
 https://250bpm.com/rss.xml
+https://gabusc.us/posts/index.xml
+https://beej.us/blog/rss.xml
+https://feed.ipspace.net/blog/ "~Ivan Pepelnjak"
 ----------------Youtube--------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuxpxCCevIlF-k-K5YU8XPA "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~Mental Outlaw" "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCf93fPKwotph47H3_KDcRyg "~Kris Occhipinti" "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "~Wolfgang" "youtube"

@@ -1,0 +1,21 @@
+Apr 06 Mon, 2020
+
+- Softwares
+	- MFEM/GLVis runs fluently (/usr/local/lib with sudo)
+- Visualization Tools
+	- what's your take on GLVis in terms of its pros and cons / strengths and limits
+	- what other visualization tools do we use often in this group
+		- VisIt?
+			- run fluently on the ubuntu machine by downloading the binaries (only offered for a couple common OS's)
+			- building (despite of choosing the minimal version) failed on my main machine running arch linux
+			- one of the maintainers replied saying that the issue would be fixed in the next release
+		- Paraview?
+		- I tried GLVis on a poisson solution (.vtk) computed by deal.ii and it didn't work
+- Next up
+	1. Implement convection-dominated convection diffusion problem in deal.ii/mfem for
+		- GaLS
+		- DG/HDG
+	2. Read literature on apos and AMR, get familiar with the analysis
+	3. Implement basic problems on AMR (Poisson, Stokes, convection diffusion, ...)
+	4. read and implement DPG on various problems
+

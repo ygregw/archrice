@@ -1,0 +1,12 @@
+* How to set different b.c.'s other than homogeneous Dirichlet illstrated for the simplest Poisson problem?
+    See step-3 tutorial Results -> Possibilities for extensions -> bullet point #3.
+    Link: [step-3 tutorial](https://dealii.org/developer/doxygen/deal.II/step_3.html#Results)
+
+* **FEValues** class:
+    Given one instance of three objects respectively from *FiniteElement*,
+    *Quadrature*, and (implicitly) *Mapping* classes, provide the user with
+    information about values and gradients of shape functions at quadrature
+    points on a real cell.
+    NB: Actually, there is a fourth (third if the Mapping object is the default
+    one, i.e., bilinear Q1 mapping) one, the *UpdateFlags* object.
+    Link: [Interplay of UpdateFlags, Mapping and FiniteElement in FEValues](https://dealii.org/developer/doxygen/deal.II/group__UpdateFlags.html)

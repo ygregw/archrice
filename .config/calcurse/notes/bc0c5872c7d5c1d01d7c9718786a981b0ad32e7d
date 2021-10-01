@@ -1,0 +1,29 @@
+Apr 09 Thu, 2020
+
+A paper that might be interesting: [Robust a posteriori error estimates for HDG method for convection–diffusion equations](https://academic.oup.com/imajna/article-abstract/36/1/437/2363831?redirectedFrom=PDF)
+Some highlights:
+- The a posteriori error analysis for the HDG method for second-order elliptic problems has been presented in Cockburn & Zhang (2012, 2013), where the error incorporates only the flux and a post-processed solution used in the estimators.
+- The paper claims to offer the first a posteriori estimator for convection dominated convection diffusion problems that is realized through the techniques in Fu et al. (2015) which *proves a condition number to be independent of the diffusion coef*. The perks of this a pos. est. therefore lie in no post-processing and robustness w.r.t. diffusion coefficient.
+- Frederick Qiu is the corresponding author. I know the first author. He is from my undergrad univ. It might worth consideration to contact him in the near future after I establish fair level of understanding and progress on this project.
+
+Apr 06 Mon, 2020
+
+- Softwares
+	- MFEM/GLVis runs fluently (/usr/local/lib with sudo)
+- Visualization Tools
+	- what's your take on GLVis in terms of its pros and cons / strengths and limits
+	- what other visualization tools do we use often in this group
+		- VisIt?
+			- run fluently on the ubuntu machine by downloading the binaries (only offered for a couple common OS's)
+			- building (despite of choosing the minimal version) failed on my main machine running arch linux
+			- one of the maintainers replied saying that the issue would be fixed in the next release
+		- Paraview?
+		- I tried GLVis on a poisson solution (.vtk) computed by deal.ii and it didn't work
+- Next up
+	1. Implement convection-dominated convection diffusion problem in deal.ii/mfem for
+		- GaLS
+		- DG/HDG
+	2. Read literature on apos and AMR, get familiar with the analysis
+	3. Implement basic problems on AMR (Poisson, Stokes, convection diffusion, ...)
+	4. read and implement DPG on various problems
+
